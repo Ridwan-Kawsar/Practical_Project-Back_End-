@@ -9,7 +9,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity // Table
-public class FantasyF1Team {
+public class FantasyF1 {
 
 	@Id // PK
 	@GeneratedValue(strategy = GenerationType.IDENTITY) // AI
@@ -22,12 +22,12 @@ public class FantasyF1Team {
 	private String driverOne;
 	private String driverTwo;
 
-	public FantasyF1Team() {
+	public FantasyF1() {
 		super();
 		// REQUIRED
 	}
 
-	public FantasyF1Team(String teamPrinciple, String engineProvider, String teamName, String driverOne,
+	public FantasyF1(String teamPrinciple, String engineProvider, String teamName, String driverOne,
 			String driverTwo) {
 		super();
 		this.teamPrinciple = teamPrinciple;
@@ -37,7 +37,7 @@ public class FantasyF1Team {
 		this.driverTwo = driverTwo;
 	}
 
-	public FantasyF1Team(Integer id, String teamPrinciple, String engineProvider, String teamName, String driverOne,
+	public FantasyF1(Integer id, String teamPrinciple, String engineProvider, String teamName, String driverOne,
 			String driverTwo) {
 		super();
 		this.id = id;
