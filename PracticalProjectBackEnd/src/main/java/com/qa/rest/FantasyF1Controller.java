@@ -5,8 +5,10 @@ import java.util.List;
 
 import javax.websocket.server.PathParam;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
@@ -16,12 +18,15 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.qa.entity.FantasyF1;
+import com.qa.service.FantasyF1Service;
 
+@CrossOrigin
 @RestController
 public class FantasyF1Controller {
 
-	private List<FantasyF1> fantasyf1 = new ArrayList<>();
-
+	@Autowired
+	private FantasyF1Service service; 
+	
 	@GetMapping("/hello")
 	public String helloWorld() {
 		String a = "Hello, ";
@@ -36,19 +41,23 @@ public class FantasyF1Controller {
 
 	@GetMapping("/getFantasyF1/{id}")
 	public FantasyF1 getById(@PathVariable int id) {
-		return this.fantasyf1.get(id);
+		return this.service.getById(id);
 	}
 
-	@GetMapping("/getFantasyF1/{id}")
+	@GetMapping("/getFantasyF1")
 	public List<FantasyF1> getAll() {
-		return this.fantasyf1;
+		return this.service.getAll();
 	}
 
+	@GetMapping("/getFantasyF1ByTeamPrinciple/{teamPrinciple}")
+	public FantasyF1 getFantasyF1ByTeamPrinciple(@PathVariable String teamPrinciple) {
+		return this.service.findByTeamPrinciple(teamPrinciple);
+	}
+	
 	@PostMapping("/createFantasyF1")
 	public ResponseEntity<FantasyF1> create(@RequestBody FantasyF1 f1) {
 		System.out.println("Created: " + f1);
-		this.fantasyf1.add(f1);
-		FantasyF1 created = this.fantasyf1.get(this.fantasyf1.size() - 1);
+		FantasyF1 created = this.service.create(f1);
 
 		return new ResponseEntity<FantasyF1>(created, HttpStatus.CREATED); // Setting the Status Code 201; Created
 	}
@@ -57,33 +66,13 @@ public class FantasyF1Controller {
 	public FantasyF1 update(@PathVariable("id") int id, @PathParam("teamPrinciple") String teamPrinciple,
 			@PathParam("engineProvider") String engineProvider, @PathParam("teamName") String teamName,
 			@PathParam("driverOne") String driverOne, @PathParam("driverTwo") String driverTwo) {
-		System.out.println("ID: " + id);
-		System.out.println("Team Principle: " + teamPrinciple);
-		System.out.println("Engine Provider: " + engineProvider);
-		System.out.println("Team Name: " + teamName);
-		System.out.println("Driver 1: " + driverOne);
-		System.out.println("Driver 2: " + driverTwo);
-
-		FantasyF1 toUpdate = this.fantasyf1.get(id);
-		if (teamPrinciple != null) // if statements used, when updating and some field remains the same, user
-									// doesn't have to enter a value in again as the default value will be entered.
-			toUpdate.setTeamPrinciple(teamPrinciple);
-		if (engineProvider != null)
-			toUpdate.setEngineProvider(engineProvider);
-		if (teamName != null)
-			toUpdate.setTeamName(teamName);
-		if (driverOne != null)
-			toUpdate.setDriverOne(driverOne);
-		if (driverTwo != null)
-			toUpdate.setDriverTwo(driverTwo);
-		return toUpdate;
+		return this.service.update(id, teamPrinciple, engineProvider, teamName, driverOne, driverTwo);
 	}
 
 	// id = 4994
 	@DeleteMapping("/removeFantasyF1{id}")
 	public ResponseEntity<?> delete(@PathVariable int id) {
-		System.out.println("ID: " + id);
-		this.fantasyf1.remove(id);
+		this.service.delete(id);
 		return new ResponseEntity<>(HttpStatus.NO_CONTENT);
 	}
 }
