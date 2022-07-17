@@ -1,6 +1,5 @@
 package com.qa.rest;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.websocket.server.PathParam;
@@ -25,7 +24,7 @@ import com.qa.service.FantasyF1Service;
 public class FantasyF1Controller {
 
 	@Autowired
-	private FantasyF1Service service; 
+	private FantasyF1Service service; // dependency
 	
 	@GetMapping("/hello")
 	public String helloWorld() {

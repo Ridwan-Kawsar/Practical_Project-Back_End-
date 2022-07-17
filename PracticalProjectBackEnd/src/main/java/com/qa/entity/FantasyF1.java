@@ -27,8 +27,7 @@ public class FantasyF1 {
 		// REQUIRED
 	}
 
-	public FantasyF1(String teamPrinciple, String engineProvider, String teamName, String driverOne,
-			String driverTwo) {
+	public FantasyF1(String teamPrinciple, String engineProvider, String teamName, String driverOne, String driverTwo) {
 		super();
 		this.teamPrinciple = teamPrinciple;
 		this.engineProvider = engineProvider;
@@ -98,7 +97,51 @@ public class FantasyF1 {
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(driverOne, driverTwo, engineProvider, id, teamName, teamPrinciple);
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((this.teamPrinciple == null) ? 0 : this.teamPrinciple.hashCode());
+		result = prime * result + ((this.engineProvider == null) ? 0 : this.engineProvider.hashCode());
+		result = prime * result + ((this.teamName == null) ? 0 : this.teamName.hashCode());
+		result = prime * result + ((this.driverOne == null) ? 0 : this.driverOne.hashCode());
+		result = prime * result + ((this.driverTwo == null) ? 0 : this.driverTwo.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		FantasyF1 other = (FantasyF1) obj;
+		if (this.teamPrinciple == null) {
+			if (other.teamPrinciple != null)
+				return false;
+		} else if (!this.teamPrinciple.equals(other.teamPrinciple))
+			return false;
+		if (this.engineProvider == null) {
+			if (other.engineProvider != null)
+				return false;
+		} else if (!this.engineProvider.equals(other.engineProvider))
+			return false;
+		if (this.teamName == null) {
+			if (other.teamName != null)
+				return false;
+		} else if (!this.teamName.equals(other.teamName))
+			return false;
+		if (this.driverOne == null) {
+			if (other.driverOne != null)
+				return false;
+		} else if (!this.driverOne.equals(other.driverOne))
+			return false;
+		if (this.driverTwo == null) {
+			if (other.driverTwo != null)
+				return false;
+		} else if (!this.driverTwo.equals(other.driverTwo))
+			return false;
+		return true;
 	}
 
 	@Override
