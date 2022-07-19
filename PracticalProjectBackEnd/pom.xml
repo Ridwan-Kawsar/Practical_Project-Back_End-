@@ -9,9 +9,9 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.qa</groupId>
-	<artifactId>PracticalProjectBackEnd</artifactId>
+	<artifactId>PracticalProjectAPI</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>PracticalProjectBackEnd</name>
+	<name>PracticalProjectAPI</name>
 	<description>Back-End for QA Software Core - Practical Project </description>
 	<properties>
 		<java.version>17</java.version>

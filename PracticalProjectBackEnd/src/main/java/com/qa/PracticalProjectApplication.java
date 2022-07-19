@@ -7,10 +7,10 @@ import org.springframework.context.ApplicationContext;
 import com.qa.rest.FantasyF1Controller;
 
 @SpringBootApplication
-public class PracticalProjectBackEndApplication {
+public class PracticalProjectApplication {
 
 	public static void main(String[] args) {
-		ApplicationContext context = SpringApplication.run(PracticalProjectBackEndApplication.class, args);
+		ApplicationContext context = SpringApplication.run(PracticalProjectApplication.class, args);
 		System.out.println("Found the bean: " + context.getBean(FantasyF1Controller.class));
 	}
 
