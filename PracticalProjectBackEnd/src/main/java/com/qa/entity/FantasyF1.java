@@ -97,14 +97,7 @@ public class FantasyF1 {
 
 	@Override
 	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + ((this.teamPrinciple == null) ? 0 : this.teamPrinciple.hashCode());
-		result = prime * result + ((this.engineProvider == null) ? 0 : this.engineProvider.hashCode());
-		result = prime * result + ((this.teamName == null) ? 0 : this.teamName.hashCode());
-		result = prime * result + ((this.driverOne == null) ? 0 : this.driverOne.hashCode());
-		result = prime * result + ((this.driverTwo == null) ? 0 : this.driverTwo.hashCode());
-		return result;
+		return Objects.hash(driverOne, driverTwo, engineProvider, id, teamName, teamPrinciple);
 	}
 
 	@Override
@@ -116,32 +109,9 @@ public class FantasyF1 {
 		if (getClass() != obj.getClass())
 			return false;
 		FantasyF1 other = (FantasyF1) obj;
-		if (this.teamPrinciple == null) {
-			if (other.teamPrinciple != null)
-				return false;
-		} else if (!this.teamPrinciple.equals(other.teamPrinciple))
-			return false;
-		if (this.engineProvider == null) {
-			if (other.engineProvider != null)
-				return false;
-		} else if (!this.engineProvider.equals(other.engineProvider))
-			return false;
-		if (this.teamName == null) {
-			if (other.teamName != null)
-				return false;
-		} else if (!this.teamName.equals(other.teamName))
-			return false;
-		if (this.driverOne == null) {
-			if (other.driverOne != null)
-				return false;
-		} else if (!this.driverOne.equals(other.driverOne))
-			return false;
-		if (this.driverTwo == null) {
-			if (other.driverTwo != null)
-				return false;
-		} else if (!this.driverTwo.equals(other.driverTwo))
-			return false;
-		return true;
+		return Objects.equals(driverOne, other.driverOne) && Objects.equals(driverTwo, other.driverTwo)
+				&& Objects.equals(engineProvider, other.engineProvider) && Objects.equals(id, other.id)
+				&& Objects.equals(teamName, other.teamName) && Objects.equals(teamPrinciple, other.teamPrinciple);
 	}
 
 	@Override
