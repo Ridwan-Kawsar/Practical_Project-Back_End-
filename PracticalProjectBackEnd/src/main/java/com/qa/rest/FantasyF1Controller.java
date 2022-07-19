@@ -25,13 +25,6 @@ public class FantasyF1Controller {
 
 	@Autowired
 	private FantasyF1Service service; // dependency
-	
-	@GetMapping("/hello")
-	public String helloWorld() {
-		String a = "Hello, ";
-		String b = "World";
-		return a + b;
-	}
 
 	@GetMapping("/demoFantasyF1")
 	public FantasyF1 getDemoFantasyF1() {
@@ -61,15 +54,14 @@ public class FantasyF1Controller {
 		return new ResponseEntity<FantasyF1>(created, HttpStatus.CREATED); // Setting the Status Code 201; Created
 	}
 
-	@PatchMapping("/updateFantasyF1{id}")
+	@PatchMapping("/updateFantasyF1/{id}")
 	public FantasyF1 update(@PathVariable("id") int id, @PathParam("teamPrinciple") String teamPrinciple,
 			@PathParam("engineProvider") String engineProvider, @PathParam("teamName") String teamName,
 			@PathParam("driverOne") String driverOne, @PathParam("driverTwo") String driverTwo) {
 		return this.service.update(id, teamPrinciple, engineProvider, teamName, driverOne, driverTwo);
 	}
 
-	// id = 4994
-	@DeleteMapping("/removeFantasyF1{id}")
+	@DeleteMapping("/removeFantasyF1/{id}")
 	public ResponseEntity<?> delete(@PathVariable int id) {
 		this.service.delete(id);
 		return new ResponseEntity<>(HttpStatus.NO_CONTENT);

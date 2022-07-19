@@ -2,7 +2,6 @@ package com.qa.entity;
 
 import java.util.Objects;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -15,7 +14,6 @@ public class FantasyF1 {
 	@GeneratedValue(strategy = GenerationType.IDENTITY) // AI
 	private Integer id;
 
-	@Column(name = "fantasyTeam", nullable = false, unique = true)
 	private String teamPrinciple;
 	private String engineProvider;
 	private String teamName;

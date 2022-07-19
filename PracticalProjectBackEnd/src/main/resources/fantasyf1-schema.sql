@@ -5,5 +5,5 @@ create table `fantasyf1` (
 	`engine_provider` VARCHAR(30) NOT NULL,
 	`team_name` VARCHAR(30) NOT NULL, 
 	`driver_one` VARCHAR(30) NOT NULL,
-	`driver_two` VARCHAR(30) NOT NULL,
+	`driver_two` VARCHAR(30) NOT NULL
 );

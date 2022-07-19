@@ -5,10 +5,10 @@ INSERT INTO `fantasyf1` (
 	`team_name`,
 	`driver_one`,
 	`driver_two`
-) 
+)
 VALUES (
 	default,
-	Ridwan Kawsar,
+	'Ridwan Kawsar',
 	'Mercedes',
 	'McLaren',
 	'Charles Leclerc',
