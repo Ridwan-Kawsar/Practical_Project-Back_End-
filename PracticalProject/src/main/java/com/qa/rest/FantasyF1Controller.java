@@ -28,7 +28,7 @@ public class FantasyF1Controller {
 
 	@GetMapping("/demoFantasyF1")
 	public FantasyF1 getDemoFantasyF1() {
-		return new FantasyF1("Ridwan Kawsar", "Mercedes", "McLaren", "Charles Leclerc", "Lewis Hamilton");
+		return new FantasyF1(1, "Ridwan Kawsar", "Mercedes", "McLaren", "Charles Leclerc", "Lewis Hamilton");
 	}
 
 	@GetMapping("/getFantasyF1/{id}")

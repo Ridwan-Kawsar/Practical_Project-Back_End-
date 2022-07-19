@@ -94,25 +94,6 @@ public class FantasyF1 {
 	}
 
 	@Override
-	public int hashCode() {
-		return Objects.hash(driverOne, driverTwo, engineProvider, id, teamName, teamPrinciple);
-	}
-
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		FantasyF1 other = (FantasyF1) obj;
-		return Objects.equals(driverOne, other.driverOne) && Objects.equals(driverTwo, other.driverTwo)
-				&& Objects.equals(engineProvider, other.engineProvider) && Objects.equals(id, other.id)
-				&& Objects.equals(teamName, other.teamName) && Objects.equals(teamPrinciple, other.teamPrinciple);
-	}
-
-	@Override
 	public String toString() {
 		return "FantasyF1Team [id=" + id + ", teamPrinciple=" + teamPrinciple + ", engineProvider=" + engineProvider
 				+ ", teamName=" + teamName + ", driverOne=" + driverOne + ", driverTwo=" + driverTwo + "]";
