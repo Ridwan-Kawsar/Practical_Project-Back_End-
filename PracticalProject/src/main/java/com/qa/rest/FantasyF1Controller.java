@@ -26,19 +26,19 @@ public class FantasyF1Controller {
 	@Autowired
 	private FantasyF1Service service; // dependency
 
-	@GetMapping("/demoFantasyF1")
-	public FantasyF1 getDemoFantasyF1() {
-		return new FantasyF1(1, "Ridwan Kawsar", "Mercedes", "McLaren", "Charles Leclerc", "Lewis Hamilton");
-	}
-
-	@GetMapping("/getFantasyF1/{id}")
-	public FantasyF1 getById(@PathVariable int id) {
-		return this.service.getById(id);
-	}
+//	@GetMapping("/demoFantasyF1")
+//	public FantasyF1 getDemoFantasyF1() {
+//		return new FantasyF1(1, "Ridwan Kawsar", "Mercedes", "McLaren", "Charles Leclerc", "Lewis Hamilton");
+//	}
 
 	@GetMapping("/getFantasyF1")
 	public List<FantasyF1> getAll() {
 		return this.service.getAll();
+	}
+	
+	@GetMapping("/getFantasyF1/{id}")
+	public FantasyF1 getById(@PathVariable int id) {
+		return this.service.getById(id);
 	}
 
 	@GetMapping("/getFantasyF1ByTeamPrinciple/{teamPrinciple}")

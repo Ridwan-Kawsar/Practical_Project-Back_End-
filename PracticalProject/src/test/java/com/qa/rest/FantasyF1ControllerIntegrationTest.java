@@ -38,6 +38,30 @@ public class FantasyF1ControllerIntegrationTest {
 	private ObjectMapper mapper;
 
 	@Test
+	void testRead() throws Exception {
+		List<FantasyF1> f1 = List
+				.of(new FantasyF1(1, "Ridwan Kawsar", "Mercedes", "McLaren", "Charles Leclerc", "Lewis Hamilton"));
+		this.mvc.perform(get("/getFantasyF1")).andExpect(status().isOk())
+				.andExpect(content().json(this.mapper.writeValueAsString(f1)));
+	}
+
+	@Test
+	void testReadById() throws Exception {
+		FantasyF1 testFantasyF1Id = new FantasyF1(1, "Ridwan Kawsar", "Mercedes", "McLaren", "Charles Leclerc",
+				"Lewis Hamilton");
+		this.mvc.perform(get("/getFantasyF1/1")).andExpect(status().isOk())
+				.andExpect(content().json(this.mapper.writeValueAsString(testFantasyF1Id)));
+	}
+
+	@Test
+	void testReadByTeamPrinciple() throws Exception {
+		FantasyF1 testFantasyF1TeamPrinciple = new FantasyF1(1, "Ridwan Kawsar", "Mercedes", "McLaren",
+				"Charles Leclerc", "Lewis Hamilton");
+		this.mvc.perform(get("/getFantasyF1ByTeamPrinciple/Ridwan Kawsar")).andExpect(status().isOk())
+				.andExpect(content().json(this.mapper.writeValueAsString(testFantasyF1TeamPrinciple)));
+	}
+
+	@Test
 	void testCreate() throws Exception {
 		FantasyF1 testFantasyF1 = new FantasyF1("Saif Hussain", "Honda", "Red Bull", "Max Verstappen",
 				"George Russell");
@@ -52,14 +76,6 @@ public class FantasyF1ControllerIntegrationTest {
 		ResultMatcher checkBody = content().json(createdFantasyF1AsJSON);
 
 		this.mvc.perform(req).andExpect(checkStatus).andExpect(checkBody);
-	}
-
-	@Test
-	void testRead() throws Exception {
-		List<FantasyF1> f1 = List
-				.of(new FantasyF1(1, "Ridwan Kawsar", "Mercedes", "McLaren", "Charles Leclerc", "Lewis Hamilton"));
-		this.mvc.perform(get("/getFantasyF1")).andExpect(status().isOk())
-				.andExpect(content().json(this.mapper.writeValueAsString(f1)));
 	}
 
 	@Test
