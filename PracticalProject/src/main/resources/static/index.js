@@ -2,83 +2,82 @@
 
 const output = document.getElementById('output');
 
-document.getElementById('fantasyF1Form').addEventListener("submit", function (event) {
+document.getElementById('pokedexForm').addEventListener("submit", function (event) {
     event.preventDefault();
 
     const form = event.target;
 
-    const f1 = {
-        teamPrinciple: form.f1TeamPrinciple.value,
-        engineProvider: form.f1EngineProvider.value,
-        teamName: form.f1TeamName.value,
-        driverOne: form.f1DriverOne.value,
-        driverTwo: form.f1DriverTwo.value,
+    const pokemon = {
+        name: form.name.value, // form.name = id from html (line 23)
+        type: form.type.value,
+        species: form.species.value,
+        height: form.height.value,
+        weight: form.weight.value,
     }
 
-    axios.post("/createFantasyF1", f1)
+    axios.post("/createPokedex", pokemon)
         .then(res => {
             console.log("RESPONSE: ", res);
-            form.fantasyF1TeamPrinciple.focus();
+            form.name.focus();
             form.reset();
-            renderFantasyF1();
+            renderPokedex();
         })
         .catch(err => console.error(err));
 
-    console.log("f1: ", f1);
+    console.log("pokemon: ", pokemon);
 });
 
-function renderFantasyF1() {
-    axios.get("/getFantasyF1")
+function renderPokedex() {
+    axios.get("/getPokedex")
         .then(res => {
-            console.log("f1: ", res.data);
+            console.log("pokemon: ", res.data);
             output.innerHTML = "";
-            for (let f1 of res.data) {
-                const f1Col = document.createElement("div");
-                f1Col.className = "col";
+            for (let pokemon of res.data) {
+                const column = document.createElement("div");
+                column.className = "col";
 
-                const f1Card = document.createElement("div");
-                f1Card.className = "card";
-                f1Col.appendChild(f1Card);
+                const pokemonCard = document.createElement("div");
+                pokemonCard.className = "card";
+                column.appendChild(pokemonCard);
 
-                const f1Div = document.createElement("div");
-                f1Div.className = "card-body";
-                f1Card.appendChild(f1Div);
+                const cardBody = document.createElement("div");
+                cardBody.className = "card-body";
+                pokemonCard.appendChild(cardBody);
 
-                const f1Name = document.createElement("h2");
-                f1TeamPrinciple.innerText = f1.teamPrinciple;
-                f1Div.appendChild(f1TeamPrinciple);
+                const header = document.createElement("h2");
+                pokemonName.innerText = pokemon.name;
+                cardBody.appendChild(header);
 
-                const dinoAge = document.createElement("p");
-                dinoAge.innerText = dino.age + " years old.";
-                dinoDiv.appendChild(dinoAge);
+                const pokemonAttributes = document.createElement("p");
+                pokemonAttributes.innerText = pokemon.height + " m";
+                cardBody.appendChild(pokemonAttributes);
 
-                const dinoSpecies = document.createElement("p");
-                dinoSpecies.innerText = dino.species;
-                dinoSpecies.classList.add("btn", "btn-alert");
-                dinoDiv.appendChild(dinoSpecies);
+                const updateButton = document.createElement("p");
+                updateButton.innerText = "update";
+                updateButton.classList.add("btn", "btn-alert");
+                cardBody.appendChild(updateButton);
 
-                const f1Delete = document.createElement("button");
-                f1Delete.innerText = "DESTROY";
-                f1Delete.addEventListener("click", function () {
-                    deleteF1(f1.id);
+                const deleteButton = document.createElement("button");
+                deleteButton.innerText = "Delete";
+                deleteButton.addEventListener("click", function () {
+                    deletePokemon(pokemon.id);
                 });
 
-                f1Div.appendChild(fantasyF1Delete);
+                cardBody.appendChild(deleteButton);
 
-                output.appendChild(f1Col);
+                output.appendChild(column);
             }
         })
         .catch(err => console.error(err));
 }
 
-function deleteFantasyF1(id) {
-    axios.delete("/removeFantasyF1/" + id)
+function deletePokemon(id) {
+    axios.delete("/removePokedex/" + id)
         .then(res => {
             console.log(res);
-            renderF1();
+            renderPokedex();
         })
         .catch(err => console.error(err));
 }
 
-
-renderDinos();
+renderPokedex();
