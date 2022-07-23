@@ -7,6 +7,7 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.junit.jupiter.api.Test;
@@ -22,14 +23,14 @@ import org.springframework.test.web.servlet.RequestBuilder;
 import org.springframework.test.web.servlet.ResultMatcher;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.qa.entity.Pokedex;
+import com.qa.entity.Pokemon;
 
 @SpringBootTest
 @AutoConfigureMockMvc // sets up the testing class
-@Sql(scripts = { "classpath:pokedex-schema.sql",
-		"classpath:pokedex-data.sql" }, executionPhase = ExecutionPhase.BEFORE_TEST_METHOD)
+@Sql(scripts = { "classpath:pokemon-schema.sql",
+		"classpath:pokemon-data.sql" }, executionPhase = ExecutionPhase.BEFORE_TEST_METHOD)
 @ActiveProfiles("test")
-public class PokedexControllerIntegrationTest {
+public class PokemonControllerIntegrationTest {
 
 	@Autowired
 	private MockMvc mvc;
@@ -39,50 +40,51 @@ public class PokedexControllerIntegrationTest {
 
 	@Test
 	void testRead() throws Exception {
-		List<Pokedex> pokemon = List.of(new Pokedex(1, "Pikachu", "Electric", "Mouse", 0.4f, 6.0f));
-		this.mvc.perform(get("/getPokedex")).andExpect(status().isOk())
+		List<Pokemon> pokemon = List.of(new Pokemon(1, "Pikachu", "Electric", "Mouse", 180, 103, 76));
+		this.mvc.perform(get("/getPokemon")).andExpect(status().isOk())
 				.andExpect(content().json(this.mapper.writeValueAsString(pokemon)));
 	}
 
 	@Test
 	void testReadById() throws Exception {
-		Pokedex testPokedexId = new Pokedex(1, "Pikachu", "Electric", "Mouse", 0.4f, 6.0f);
-		this.mvc.perform(get("/getPokedex/1")).andExpect(status().isOk())
-				.andExpect(content().json(this.mapper.writeValueAsString(testPokedexId)));
+		Pokemon testPokemonId = new Pokemon(1, "Pikachu", "Electric", "Mouse", 180, 103, 76);
+		this.mvc.perform(get("/getPokemonById/1")).andExpect(status().isOk())
+				.andExpect(content().json(this.mapper.writeValueAsString(testPokemonId)));
 	}
 
 	@Test
 	void testReadByName() throws Exception {
-		Pokedex testPokedexName = new Pokedex(1, "Pikachu", "Electric", "Mouse", 0.4f, 6.0f);
-		this.mvc.perform(get("/getPokedexByName/Pikachu")).andExpect(status().isOk())
-				.andExpect(content().json(this.mapper.writeValueAsString(testPokedexName)));
+		List<Pokemon> testPokemonName = new ArrayList<Pokemon>();
+		testPokemonName.add(new Pokemon(1, "Pikachu", "Electric", "Mouse", 180, 103, 76));
+		this.mvc.perform(get("/getPokemonByName/Pikachu")).andExpect(status().isOk())
+				.andExpect(content().json(this.mapper.writeValueAsString(testPokemonName)));
 	}
 
 	@Test
 	void testCreate() throws Exception {
-		Pokedex testPokedex = new Pokedex("Charizard", "Fire", "Dragon", 1.7f, 90.5f);
-		String testPokedexAsJSON = this.mapper.writeValueAsString(testPokedex);
-		RequestBuilder req = post("/createPokedex").content(testPokedexAsJSON)
+		Pokemon testPokemon = new Pokemon("Charizard", "Fire", "Dragon", 266, 155, 144);
+		String testPokemonAsJSON = this.mapper.writeValueAsString(testPokemon);
+		RequestBuilder req = post("/createPokemon").content(testPokemonAsJSON)
 				.contentType(MediaType.APPLICATION_JSON);
 
 		ResultMatcher checkStatus = status().is(201);
-		Pokedex createdPokedex = new Pokedex(2, "Charizard", "Fire", "Dragon", 1.7f, 90.5f);
-		String createdPokedexAsJSON = this.mapper.writeValueAsString(createdPokedex);
-		ResultMatcher checkBody = content().json(createdPokedexAsJSON);
+		Pokemon createdPokemon = new Pokemon(2, "Charizard", "Fire", "Dragon", 266, 155, 144);
+		String createdPokemonAsJSON = this.mapper.writeValueAsString(createdPokemon);
+		ResultMatcher checkBody = content().json(createdPokemonAsJSON);
 
 		this.mvc.perform(req).andExpect(checkStatus).andExpect(checkBody);
 	}
 
 	@Test
 	void testUpdate() throws Exception {
-		Pokedex updated = new Pokedex(1, "Raichu", "Electric", "Mouse", 0.8f, 30.0f);
+		Pokemon updated = new Pokemon(1, "Raichu", "Electric", "Mouse", 230, 166, 103);
 		this.mvc.perform(patch(
-				"/updatePokedex/1?name=Raichu&type=Electric&species=Mouse&height=0.8f&weight=30.0f"))
+				"/updatePokemon/1?name=Raichu&type=Electric&species=Mouse&health=230&attack=166&defense=103"))
 				.andExpect(status().isOk()).andExpect(content().json(this.mapper.writeValueAsString(updated)));
 	}
 
 	@Test
 	void testDelete() throws Exception {
-		this.mvc.perform(delete("/removePokedex/1")).andExpect(status().isNoContent());
+		this.mvc.perform(delete("/removePokemon/1")).andExpect(status().isNoContent());
 	}
 }

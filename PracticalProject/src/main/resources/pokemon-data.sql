@@ -1,16 +1,18 @@
-INSERT INTO `pokedex` (
+INSERT INTO `pokemon` (
 	`id`,
 	`name`,
 	`type`,
 	`species`,
-	`height`,
-	`weight`
+	`health`,
+	`attack`,
+	`defense`
 )
 VALUES (
 	default,
 	'Pikachu',
 	'Electric',
 	'Mouse',
-	'0.4',
-	'6.0'
+	'180',
+	'103',
+	'76'
 );

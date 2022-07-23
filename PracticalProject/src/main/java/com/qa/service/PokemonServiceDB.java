@@ -6,45 +6,47 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Service;
 
-import com.qa.entity.Pokedex;
-import com.qa.repo.PokedexRepo;
+import com.qa.entity.Pokemon;
+import com.qa.repo.PokemonRepo;
 
 @Service
 @Primary
-public class PokedexServiceDB implements PokedexService {
+public class PokemonServiceDB implements PokemonService {
 
 	@Autowired
-	private PokedexRepo repo;
+	private PokemonRepo repo;
 
 	@Override
-	public Pokedex getById(int id) {
+	public Pokemon getById(int id) {
 		return this.repo.findById(id).get();
 	}
 
 	@Override
-	public List<Pokedex> getAll() {
+	public List<Pokemon> getAll() {
 		return this.repo.findAll();
 	}
 
 	@Override
-	public Pokedex create(Pokedex pokemon) {
+	public Pokemon create(Pokemon pokemon) {
 		return this.repo.save(pokemon);
 	}
 
 	@Override
-	public Pokedex update(int id, String name, String type, String species, Float height,
-			Float weight) {
-		Pokedex toUpdate = this.getById(id);
+	public Pokemon update(int id, String name, String type, String species, Integer health,
+			Integer attack, Integer defense) {
+		Pokemon toUpdate = this.getById(id);
 		if (name != null)
 			toUpdate.setName(name);
 		if (type != null)
 			toUpdate.setType(type);
 		if (species != null)
 			toUpdate.setSpecies(species);
-		if (height != null)
-			toUpdate.setHeight(height);
-		if (weight != null)
-			toUpdate.setWeight(weight);
+		if (health != null)
+			toUpdate.setHealth(health);
+		if (attack != null)
+			toUpdate.setAttack(attack);
+		if (defense != null)
+			toUpdate.setDefense(defense);
 		return this.repo.save(toUpdate);
 	}
 
@@ -54,7 +56,7 @@ public class PokedexServiceDB implements PokedexService {
 	}
 
 	@Override
-	public Pokedex findByName(String name) {
+	public List<Pokemon> findByName(String name) {
 		return this.repo.findByNameStartingWithIgnoreCase(name);
 	}
 

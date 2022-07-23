@@ -1,9 +1,0 @@
-DROP TABLE IF EXISTS `pokedex` CASCADE;
-create table `pokedex` (
-	`id` INTEGER UNIQUE PRIMARY KEY AUTO_INCREMENT,
-	`name` VARCHAR(30) NOT NULL, 
-	`type` VARCHAR(30) NOT NULL,
-	`species` VARCHAR(30) NOT NULL, 
-	`height` DECIMAL(8,2) NOT NULL,
-	`weight` DECIMAL(8,2) NOT NULL
-);

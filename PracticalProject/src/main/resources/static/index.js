@@ -15,7 +15,7 @@ document.getElementById('pokedexForm').addEventListener("submit", function (even
         weight: form.weight.value,
     }
 
-    axios.post("/createPokedex", pokemon)
+    axios.post("http://localhost:8080/createPokedex", pokemon)
         .then(res => {
             console.log("RESPONSE: ", res);
             form.name.focus();
@@ -28,13 +28,13 @@ document.getElementById('pokedexForm').addEventListener("submit", function (even
 });
 
 function renderPokedex() {
-    axios.get("/getPokedex")
+    axios.get("http://localhost:8080/getPokedex")
         .then(res => {
             console.log("pokemon: ", res.data);
             output.innerHTML = "";
             for (let pokemon of res.data) {
                 const column = document.createElement("div");
-                column.className = "col";
+                column.className = "col-3";
 
                 const pokemonCard = document.createElement("div");
                 pokemonCard.className = "card";
@@ -45,21 +45,40 @@ function renderPokedex() {
                 pokemonCard.appendChild(cardBody);
 
                 const header = document.createElement("h2");
-                pokemonName.innerText = pokemon.name;
+                header.innerText = pokemon.name;
                 cardBody.appendChild(header);
 
-                const pokemonAttributes = document.createElement("p");
-                pokemonAttributes.innerText = pokemon.height + " m";
-                cardBody.appendChild(pokemonAttributes);
+                const pokemonType = document.createElement("p");
+                pokemonType.innerText = pokemon.type;
+                cardBody.appendChild(pokemonType);
 
-                const updateButton = document.createElement("p");
-                updateButton.innerText = "update";
-                updateButton.classList.add("btn", "btn-alert");
+                const pokemonSpecies = document.createElement("p");
+                pokemonSpecies.innerText = pokemon.species;
+                cardBody.appendChild(pokemonSpecies);
+
+                const pokemonHeight = document.createElement("p");
+                pokemonHeight.innerText = pokemon.height + " m";
+                cardBody.appendChild(pokemonHeight);
+
+                const pokemonWeight = document.createElement("p");
+                pokemonWeight.innerText = pokemon.weight + " kg";
+                cardBody.appendChild(pokemonWeight);
+
+                const updateButton = document.createElement("button");
+                updateButton.innerText = "Update";
+                updateButton.classList.add("click", "btn-alert");
+                updateButton.addEventListener("click", function () {
+                    alert("Confirm update entry?")
+                    updatePokemon(pokemon.id);
+                });
+
                 cardBody.appendChild(updateButton);
 
                 const deleteButton = document.createElement("button");
                 deleteButton.innerText = "Delete";
+                deleteButton.classList.add("click", "btn-danger");
                 deleteButton.addEventListener("click", function () {
+                    alert("Confirm delete entry?")
                     deletePokemon(pokemon.id);
                 });
 
@@ -72,7 +91,16 @@ function renderPokedex() {
 }
 
 function deletePokemon(id) {
-    axios.delete("/removePokedex/" + id)
+    axios.delete("http://localhost:8080/removePokedex/" + id)
+        .then(res => {
+            console.log(res);
+            renderPokedex();
+        })
+        .catch(err => console.error(err));
+}
+
+function updatePokemon(id) {
+    axios.delete("http://localhost:8080/updatePokedex/" + id)
         .then(res => {
             console.log(res);
             renderPokedex();
