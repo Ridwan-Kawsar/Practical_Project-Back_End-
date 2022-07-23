@@ -86,7 +86,7 @@ public class PokemonControllerIntegrationTest {
 	void testUpdate() throws Exception {
 		Pokemon updated = new Pokemon(1, "Raichu", "Electric", "Mouse", 230, 166, 103);
 		this.mvc.perform(patch(
-				"/updatePokemon/1?name=Raichu&type=Electric&species=Mouse&health=230&attack=166&defense=103"))
+				"/updatePokemon/1?name=Raichu&type=Electric&species=Mouse&health=230&attack=166&defence=103"))
 				.andExpect(status().isOk()).andExpect(content().json(this.mapper.writeValueAsString(updated)));
 	}
 

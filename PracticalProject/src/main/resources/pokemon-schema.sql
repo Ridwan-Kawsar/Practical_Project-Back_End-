@@ -6,5 +6,5 @@ create table `pokemon` (
 	`species` VARCHAR(30) NOT NULL, 
 	`health` INTEGER NOT NULL,
 	`attack` INTEGER NOT NULL,
-	`defense` INTEGER NOT NULL
+	`defence` INTEGER NOT NULL
 );

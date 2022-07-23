@@ -19,25 +19,25 @@ public class Pokemon {
 	private String species;
 	private Integer health;
 	private Integer attack;
-	private Integer defense;
+	private Integer defence;
 
 	public Pokemon() {
 		super();
 		// REQUIRED
 	}
 
-	public Pokemon(String name, String type, String species, Integer health, Integer attack, Integer defense) {
+	public Pokemon(String name, String type, String species, Integer health, Integer attack, Integer defence) {
 		super();
 		this.name = name;
 		this.type = type;
 		this.species = species;
 		this.health = health;
 		this.attack = attack;
-		this.defense = defense;
+		this.defence = defence;
 	}
 
 	public Pokemon(Integer id, String name, String type, String species, Integer health, Integer attack,
-			Integer defense) {
+			Integer defence) {
 		super();
 		this.id = id;
 		this.name = name;
@@ -45,7 +45,7 @@ public class Pokemon {
 		this.species = species;
 		this.health = health;
 		this.attack = attack;
-		this.defense = defense;
+		this.defence = defence;
 	}
 
 	public Integer getId() {
@@ -96,17 +96,17 @@ public class Pokemon {
 		this.attack = attack;
 	}
 
-	public Integer getDefense() {
-		return defense;
+	public Integer getDefence() {
+		return defence;
 	}
 
-	public void setDefense(Integer defense) {
-		this.defense = defense;
+	public void setDefence(Integer defence) {
+		this.defence = defence;
 	}
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(attack, defense, health, id, name, species, type);
+		return Objects.hash(attack, defence, health, id, name, species, type);
 	}
 
 	@Override
@@ -118,7 +118,7 @@ public class Pokemon {
 		if (getClass() != obj.getClass())
 			return false;
 		Pokemon other = (Pokemon) obj;
-		return Objects.equals(attack, other.attack) && Objects.equals(defense, other.defense)
+		return Objects.equals(attack, other.attack) && Objects.equals(defence, other.defence)
 				&& Objects.equals(health, other.health) && Objects.equals(id, other.id)
 				&& Objects.equals(name, other.name) && Objects.equals(species, other.species)
 				&& Objects.equals(type, other.type);
@@ -127,7 +127,7 @@ public class Pokemon {
 	@Override
 	public String toString() {
 		return "Pokedex [id=" + id + ", name=" + name + ", type=" + type + ", species=" + species + ", health=" + health
-				+ ", attack=" + attack + ", defense=" + defense + "]";
+				+ ", attack=" + attack + ", defence=" + defence + "]";
 	}
 
 }

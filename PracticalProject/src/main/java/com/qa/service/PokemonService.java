@@ -14,7 +14,7 @@ public interface PokemonService {
 
 	Pokemon create(Pokemon pokemon);
 
-	Pokemon update(int id, String name, String type, String species, Integer health, Integer attack, Integer defense);
+	Pokemon update(int id, String name, String type, String species, Integer health, Integer attack, Integer defence);
 
 	void delete(int id);
 		

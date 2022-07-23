@@ -5,7 +5,7 @@ INSERT INTO `pokemon` (
 	`species`,
 	`health`,
 	`attack`,
-	`defense`
+	`defence`
 )
 VALUES (
 	default,

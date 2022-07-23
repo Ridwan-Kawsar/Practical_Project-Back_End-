@@ -30,7 +30,7 @@
 //
 //	@Override
 //	public Pokemon update(int id, String name, String type, String species, Integer health,
-//			Integer attack, Integer defense ) {
+//			Integer attack, Integer defence) {
 //		Pokemon toUpdate = this.pokemon.get(id);
 //		if (name != null)
 //			toUpdate.setName(name);
@@ -42,6 +42,8 @@
 //			toUpdate.setHealth(health);
 //		if (attack != null)
 //			toUpdate.setAttack(attack);
+//      if (defence != null)
+//			toUpdate.setDefence(defence);
 //		return toUpdate;
 //	}
 //
@@ -51,7 +53,7 @@
 //	}
 //
 //	@Override
-//	public Pokemon findByName(String name) {
+//	public List<Pokemon> findByName(String name) {
 //		return null;
 //	}
 //}

@@ -33,7 +33,7 @@ public class PokemonServiceDB implements PokemonService {
 
 	@Override
 	public Pokemon update(int id, String name, String type, String species, Integer health,
-			Integer attack, Integer defense) {
+			Integer attack, Integer defence) {
 		Pokemon toUpdate = this.getById(id);
 		if (name != null)
 			toUpdate.setName(name);
@@ -45,8 +45,8 @@ public class PokemonServiceDB implements PokemonService {
 			toUpdate.setHealth(health);
 		if (attack != null)
 			toUpdate.setAttack(attack);
-		if (defense != null)
-			toUpdate.setDefense(defense);
+		if (defence != null)
+			toUpdate.setDefence(defence);
 		return this.repo.save(toUpdate);
 	}
 

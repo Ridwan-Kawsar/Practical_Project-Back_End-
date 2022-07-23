@@ -57,8 +57,8 @@ public class PokemonController {
 	@PatchMapping("/updatePokemon/{id}")
 	public Pokemon update(@PathVariable("id") int id, @PathParam("name") String name,
 			@PathParam("type") String type, @PathParam("species") String species,
-			@PathParam("health") Integer health, @PathParam("attack") Integer attack, @PathParam("defense") Integer defense) {
-		return this.service.update(id, name, type, species, health, attack, defense);
+			@PathParam("health") Integer health, @PathParam("attack") Integer attack, @PathParam("defense") Integer defence) {
+		return this.service.update(id, name, type, species, health, attack, defence);
 	}
 
 	@DeleteMapping("/removePokemon/{id}")
