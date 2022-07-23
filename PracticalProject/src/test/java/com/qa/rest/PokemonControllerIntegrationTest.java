@@ -39,6 +39,13 @@ public class PokemonControllerIntegrationTest {
 	private ObjectMapper mapper;
 
 	@Test
+	void testDemo() throws Exception {
+		Pokemon pokemon = new Pokemon(1, "Pikachu", "Electric", "Mouse", 180, 103, 76);
+		this.mvc.perform(get("/demoPokemon")).andExpect(status().isOk())
+				.andExpect(content().json(this.mapper.writeValueAsString(pokemon)));
+	}
+	
+	@Test
 	void testRead() throws Exception {
 		List<Pokemon> pokemon = List.of(new Pokemon(1, "Pikachu", "Electric", "Mouse", 180, 103, 76));
 		this.mvc.perform(get("/getPokemon")).andExpect(status().isOk())
