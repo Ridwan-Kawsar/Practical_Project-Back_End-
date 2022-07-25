@@ -106,7 +106,7 @@ public class Pokemon {
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(attack, defence, health, id, name, species, type);
+		return Objects.hash(attack, defence, health, name, species, type);
 	}
 
 	@Override
@@ -119,9 +119,8 @@ public class Pokemon {
 			return false;
 		Pokemon other = (Pokemon) obj;
 		return Objects.equals(attack, other.attack) && Objects.equals(defence, other.defence)
-				&& Objects.equals(health, other.health) && Objects.equals(id, other.id)
-				&& Objects.equals(name, other.name) && Objects.equals(species, other.species)
-				&& Objects.equals(type, other.type);
+				&& Objects.equals(health, other.health) && Objects.equals(name, other.name)
+				&& Objects.equals(species, other.species) && Objects.equals(type, other.type);
 	}
 
 	@Override
