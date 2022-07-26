@@ -73,8 +73,11 @@ function renderPokedex() {
                 updateButton.innerText = "Update";
                 updateButton.classList.add("click", "btn-alert");
                 updateButton.addEventListener("click", function () {
-                    console.log(pokemon.id)
-                    updatePokemon(pokemon.id);
+                    if (confirm('Are you sure you would like to update entry?')){
+                        console.log(updatePokemon(pokemon.id))
+                    } else {
+                        console.log("Update request cancelled");
+                    }
                 });
 
                 cardBody.appendChild(updateButton);
@@ -83,8 +86,11 @@ function renderPokedex() {
                 deleteButton.innerText = "Delete";
                 deleteButton.classList.add("click", "btn-danger");
                 deleteButton.addEventListener("click", function () {
-                    alert("Confirm delete entry?")
-                    deletePokemon(pokemon.id);
+                    if (confirm('Are you sure you would like to delete entry?')){
+                        console.log(deletePokemon(pokemon.id))
+                    } else {
+                        console.log("Delete request cancelled");
+                    }
                 });
 
                 cardBody.appendChild(deleteButton);
