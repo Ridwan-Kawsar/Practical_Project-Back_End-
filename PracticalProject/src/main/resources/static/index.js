@@ -35,7 +35,7 @@ function renderPokedex() {
             output.innerHTML = "";
             for (let pokemon of res.data) {
                 const column = document.createElement("div");
-                column.className = "col-5";
+                column.className = "col-3";
 
                 const pokemonCard = document.createElement("div");
                 pokemonCard.className = "card";
@@ -45,33 +45,29 @@ function renderPokedex() {
                 cardBody.className = "card-body";
                 pokemonCard.appendChild(cardBody);
 
-                const cardData = document.createElement("div");
-                cardData.className = "card-data";
-                cardBody.appendChild(cardData);
-
                 const header = document.createElement("h2");
                 header.innerText = pokemon.name;
-                cardData.appendChild(header);
+                cardBody.appendChild(header);
 
                 const pokemonType = document.createElement("p");
                 pokemonType.innerText = "Type: " + pokemon.type;
-                cardData.appendChild(pokemonType);
+                cardBody.appendChild(pokemonType);
 
                 const pokemonSpecies = document.createElement("p");
                 pokemonSpecies.innerText = "Species: " + pokemon.species;
-                cardData.appendChild(pokemonSpecies);
+                cardBody.appendChild(pokemonSpecies);
 
                 const pokemonHealth = document.createElement("p");
                 pokemonHealth.innerText = pokemon.health + " HP";
-                cardData.appendChild(pokemonHealth);
+                cardBody.appendChild(pokemonHealth);
 
                 const pokemonAttack = document.createElement("p");
                 pokemonAttack.innerText = pokemon.attack + " ATT";
-                cardData.appendChild(pokemonAttack);
+                cardBody.appendChild(pokemonAttack);
 
                 const pokemonDefence = document.createElement("p");
                 pokemonDefence.innerText = pokemon.defence + " DEF";
-                cardData.appendChild(pokemonDefence);
+                cardBody.appendChild(pokemonDefence);
 
                 const updateButton = document.createElement("button");
                 updateButton.innerText = "Update";
@@ -116,14 +112,11 @@ function updatePokemon(id) {
     const updatedAttack = document.getElementById("attack").value
     const updatedDefence = document.getElementById("defence").value
     axios.patch(`http://localhost:8080/updatePokemon/${id}?name=${updatedName}&species=${updatedSpecies}&type=${updatedType}&health=${updatedHealth}&attack=${updatedAttack}&defence=${updatedDefence}`)
-        .then(res => {
-            axios.post("http://localhost:8080/createPokemon", res.data)
                 .then(res => {
                     console.log("RESPONSE: ", res);
                     renderPokedex();
                 })
                 .catch(err => console.error(err));
-        })
-}
+        }
 
 renderPokedex();
