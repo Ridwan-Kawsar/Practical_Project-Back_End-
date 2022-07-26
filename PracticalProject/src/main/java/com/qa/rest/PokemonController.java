@@ -24,7 +24,7 @@ import com.qa.service.PokemonService;
 public class PokemonController {
 
 	@Autowired
-	private PokemonService service; // dependency
+	private PokemonService service;
 
 	@GetMapping("/demoPokemon")
 	public Pokemon getDemoPokemon() {
@@ -35,7 +35,7 @@ public class PokemonController {
 	public List<Pokemon> getAll() {
 		return this.service.getAll();
 	}
-	
+
 	@GetMapping("/getPokemonById/{id}")
 	public Pokemon getPokemonById(@PathVariable int id) {
 		return this.service.getById(id);
@@ -45,7 +45,7 @@ public class PokemonController {
 	public List<Pokemon> getPokemonByName(@PathVariable String name) {
 		return this.service.findByName(name);
 	}
-	
+
 	@PostMapping("/createPokemon")
 	public ResponseEntity<Pokemon> create(@RequestBody Pokemon pokemon) {
 		System.out.println("Created: " + pokemon);
@@ -55,9 +55,21 @@ public class PokemonController {
 	}
 
 	@PatchMapping("/updatePokemon/{id}")
-	public Pokemon update(@PathVariable("id") int id, @PathParam("name") String name,
-			@PathParam("type") String type, @PathParam("species") String species,
-			@PathParam("health") Integer health, @PathParam("attack") Integer attack, @PathParam("defense") Integer defence) {
+	public Pokemon update(@PathVariable("id") int id, @PathParam("name") String name, @PathParam("type") String type,
+			@PathParam("species") String species, @PathParam("health") Integer health,
+			@PathParam("attack") Integer attack, @PathParam("defense") Integer defence) {
+		Pokemon existing = getPokemonById(id);
+		if (existing != null) {
+			if ("".equals(name)) {
+				name = existing.getName();
+			}
+			if ("".equals(type)) {
+				type = existing.getName();
+			}
+			if ("".equals(species)) {
+				species = existing.getName();
+			}
+		}
 		return this.service.update(id, name, type, species, health, attack, defence);
 	}
 
