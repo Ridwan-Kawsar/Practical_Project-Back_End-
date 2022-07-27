@@ -11,17 +11,29 @@ These instructions will get you a copy of the project up and running on your loc
 
 Required softwares:
 -Bash Terminal / Terminal (Command-Line Interface / Connection to Github) - https://git-scm.com/downloads
+
 -Jira (Atlassian Website for project planning) - [https://www.atlassian.com/](https://www.atlassian.com/try/cloud/signup?bundle=jira-software&edition=free)
+
 -MySQL WorkBench (Database) - https://dev.mysql.com/downloads/windows/installer/8.0.html
+
 -Java (Coding Language) - https://www.oracle.com/uk/java/technologies/javase-downloads.html
+
 -Eclipse (Code Editor) - http://www.eclipse.org/downloads
+
 -Visual Studio Code (Code Editor for HTML and Programming Language; Java and JS) - https://code.visualstudio.com/
+
 -Maven (Build Tool / Manages dependencies) - https://maven.apache.org/download.cgi
+
 -SpringBoot (Backend Application) - https://spring.io/tools
+
 -Postman (Testing HTTP Requests) - https://www.postman.com/downloads/
+
 -H2 Console  (Remote Database) - http://localhost:8080/h2-console/
+
 -HTML/Live Server (Webpage Development) - Live Server is found in the extensions section of Visual Studio Code.
+
 -CSS/Bootstrap (Front-end Styling) - https://getbootstrap.com/
+
 -JavaScript (Coding Functionality for Front-End)
 
 ### Installing
@@ -187,4 +199,3 @@ SOFTWARE.
 * **Jordan Benbelaid** - *Taught me backend content; Java Beginner & Intermediate, JUnit and Mockito Testing, Maven and MySQL* - [jordanbenbelaid](https://github.com/jordanbenbelaid)
 
 ## Jira Board
-
