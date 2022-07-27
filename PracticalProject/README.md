@@ -149,7 +149,7 @@ Big bang integration doesn't follow many guidelines. In essence, you combine eve
 ## Built With
 
 * [Maven](https://maven.apache.org/) - Dependency Management
-* [Spring](https://spring.io/tools)- Backend Application
+* [Spring](https://spring.io/tools) - Backend Application
 
 ## Versioning
 
@@ -157,7 +157,7 @@ We use [Github](https://github.com/) for versioning.
 
 ## Authors
 
-* **Ridwan Kawsar** - *Final work - Completion of MVP* - [ridwankawsar](https://github.com/Ridwan-Kawsar)
+* **Ridwan Kawsar** - *Completion of MVP* - [ridwankawsar](https://github.com/Ridwan-Kawsar)
 
 ## License
 
