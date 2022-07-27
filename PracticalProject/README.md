@@ -143,8 +143,7 @@ We use [Github](https://github.com/) for versioning.
 
 ## Authors
 
-* **Chris Perrins** - *Initial work* - [christophperrins](https://github.com/christophperrins)
-* **Jordan Benbelaid** - *Made Adjustments to initial work* - [jordanbenbelaid](https://github.com/jordanbenbelaid)
+
 * **Ridwan Kawsar** - *Final work - Completion of MVP* - [ridwankawsar](https://github.com/Ridwan-Kawsar)
 
 ## License
@@ -174,8 +173,8 @@ SOFTWARE.
 ## Acknowledgments
 
 * QA Community
-* Jordan Benbelaid
-* Cameron Guthrie
+* **Jordan Harrison** - *Taught me front-end content; HTML, CSS, JavaScript and SpringBoot for Backend* - [jordanharrison](https://github.com/JHarry444)
+* **Jordan Benbelaid** - *Taught me backend content; Java Beginner & Intermediate, JUnit and Mockito Testing, Maven and MySQL* - [jordanbenbelaid](https://github.com/jordanbenbelaid)
 
 ## Jira Board
-https://ridwan-kawsar.atlassian.net/jira/software/projects/QAW5P/boards/2/roadmap
+
