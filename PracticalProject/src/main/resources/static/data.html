@@ -16,12 +16,26 @@
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </head>
 
-<<<<<<< HEAD
-<body>
-    <h1>Welcome to the World of Pokemons!</h1>
+<body class="container">
+    <div class="row">
+      <ul class="nav justify-content-right">  
+        <li class="nav-item">
+          <a class="nav-link" href="index.html">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="data.html">Data Entries</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="search.html">Search</a>
+        </li>
+        </ul>
+    </div>
+      
     <main class="container">
         <div class="row">
-            <section class="col-4"> <!-- col-4 -->
+            <section class="col-12"> <!-- col-4 -->
+
+              <h2>Pokemon Form</h2>
                 <form id="pokedexForm">
                     <label class="form-label" for="name">Name:</label>
                     <input class="form-control" type="text" Name="name" id="name">
@@ -42,35 +56,12 @@
                     <button class="btn btn-primary">Submit</button>
                 </form>
             </section>
-        </div>
-        <div class="row">
             <section class="col">
                 <div id="output" class="row row-cols-1 g-2"></div>
             </section>
         </div>
     </main>
     <script src="./index.js"></script>
-=======
-<body class="container">
-    <div class="row">
-        <ul class="nav justify-content-right">  
-            <li class="nav">
-                <a class="nav-link" href="index.html">Home</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="data.html">Data Entries</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="search.html">Search</a>
-            </li>
-          </ul>
-    </div>
->>>>>>> FrontENd
 </body>
-
-    <br>
-    <h1>Welcome to the World of Pokemons!</h1>
-    <br>
-    <iframe width="560" height="315" src="https://www.youtube.com/embed/cbYURXlking" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 </html>
