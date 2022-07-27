@@ -1,7 +1,7 @@
-Coverage: 68%
-# Inventory Management System (IMS)
+Coverage: 96.6%
+# Software Core Practical Project (Pokemon)
 
-The Inventory Management System allows the user to create, read, update and delete records of customers, items and orders on a database that is connected to a local instance, MySQL. It also allows for the addition & deletion of items for an order. 
+For the practical project, the developer was given the choice on what theme to build their application around. For my project, I have chosen to build it around a Pokemon database which allows the user to create, read, update and delete entries of pokemons from the front-end (webpage) that is connected to a local database in MySQL. 
 
 ## Getting Started
 
@@ -15,7 +15,13 @@ Required softwares:
 -MySQL WorkBench (Database) - https://dev.mysql.com/downloads/windows/installer/8.0.html
 -Java (Coding Language) - https://www.oracle.com/uk/java/technologies/javase-downloads.html
 -Eclipse (Code Editor) - http://www.eclipse.org/downloads
--Maven (Converts projects into jar files so that in can be run through a CLI / Manages dependencies) - https://maven.apache.org/download.cgi
+-Visual Studio Code (Code Editor for HTML and Programming Language; Java and JS) - https://code.visualstudio.com/
+-Maven (Build Tool / Manages dependencies) - https://maven.apache.org/download.cgi
+-SpringBoot (Backend Application) - https://spring.io/tools
+-Postman (Testing HTTP Requests) - https://www.postman.com/downloads/
+-HTML/Live Server (Webpage Development) - Live Server is found in the extensions section of Visual Studio Code.
+-CSS/Bootstrap (Front-end Styling) - https://getbootstrap.com/
+-JavaScript (Coding Functionality for Front-End)
 
 ### Installing
 
