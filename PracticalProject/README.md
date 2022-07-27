@@ -190,6 +190,6 @@ SOFTWARE.
 * Stackoverflow
 * Bootstrap
 * **Jordan Harrison** - *Taught me front-end content; HTML, CSS, JavaScript and SpringBoot for Backend* - [jordanharrison](https://github.com/JHarry444)
-* **Jordan Benbelaid** - *Taught me backend content; Java Beginner & Intermediate, JUnit and Mockito Testing, Maven and MySQL* - [jordanbenbelaid](https://github.com/jordanbenbelaid)
+* **Jordan Benbelaid** - *Taught me backend content and testing; Java Beginner & Intermediate, JUnit and Mockito Testing, Maven and MySQL* - [jordanbenbelaid](https://github.com/jordanbenbelaid)
 
 ## Jira Board
