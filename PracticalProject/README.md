@@ -36,71 +36,65 @@ Required softwares:
 
 -JavaScript (Coding Functionality for Front-End)
 
-### Installing
+### Installation
 
-*Installing Java*
-1. To do this; open “File Explorer” then navigate into "This PC", then "Local Disk (C:)", then "LocalInstall", then "DevOps", then "Java".
+SpringBoot Installation
 
-![image](https://user-images.githubusercontent.com/104441372/173260344-1f6ca768-2a7b-4bf9-8e48-993691a59819.png)
+Navigate to the Spring Tools page, then click the relevant download for your system:
 
-2. Double click the executable "jdk-14.0.1_window-x64_bin.exe"/"jdk-8u221-windows-x64.exe". The following window will appear. Click "next".
+![image](https://user-images.githubusercontent.com/104441372/181388489-982edd59-22f5-4cd9-af02-41fda765326e.png)
 
-![image](https://user-images.githubusercontent.com/104441372/173260396-a756373f-0cc7-4219-a2ef-e9ac9f3b67d2.png)
+This will download a tar.gz (Linux), .dmg (macOS), or self-extracting .jar (Windows).
 
-3. Then click "next" again.
+Extract/Open this file; this should generate a folder containing the installation.
 
-![image](https://user-images.githubusercontent.com/104441372/173260406-16672361-99e9-47a0-b75f-32a8d09f67b4.png)
+Inside this folder (e.g. sts-4.8.1-RELEASE), run the SpringToolSuite4 application:
 
-4. Click "next" once more.
+![image](https://user-images.githubusercontent.com/104441372/181388512-e0fe3e05-3669-47a4-9822-d07819de7e2e.png)
 
-![image](https://user-images.githubusercontent.com/104441372/173260427-f7dbc523-e0db-4801-8e18-e7bc3b9b6ce8.png)
+This should open the Spring Tool Suite IDE.
 
-5. Then click close.
+Eclipse
+Spring Tools can be installed as an Eclipse extension by navigating to this marketplace link and dragging the Install button inside of a running Eclipse:
 
-![image](https://user-images.githubusercontent.com/104441372/173260449-90191c7b-a6a7-4791-a0fb-de4e1e4ed4a8.png)
+![image](https://user-images.githubusercontent.com/104441372/181388534-f4ba4f61-db52-4751-ac96-34c2f59228e5.png)
 
-The JDK will now be installed in C:/Program Files/Java
+This will import and automatically install Spring according to your Eclipse configuration.
 
-*Setting Environment Variables for Java Development Kit*
+Once your workspace has loaded, go to File > New > Project..., then choose Spring Starter Project from the list:
 
-1. Press the Windows button and type "path" into the search field, then select "Edit the system environment variables"
+![image](https://user-images.githubusercontent.com/104441372/181388463-b1983613-1920-4192-938e-ab200c898410.png)
 
-![image](https://user-images.githubusercontent.com/104441372/173260506-98789a2c-69b7-4470-889a-d18f1810e602.png)
+![image](https://user-images.githubusercontent.com/104441372/181388429-90019519-24c4-4bfc-af9b-382a2f50a0fe.png)
 
-2. Click "Environment Variables...".
+On the following screen, fill out the details of your project as follows:
 
-![image](https://user-images.githubusercontent.com/104441372/173260519-f1e9fd9c-98bd-413f-9c2c-bf257770072a.png)
+Name can be anything you wish (in PascalCase), e.g. StarterProject.
+Ensure that you're saving your project to your spring workspace.
+Type refers to the build tool, which should be Maven.
+Packaging refers to the archive created by the build tool, which should be Jar.
+Ensure that the Java version is at least 8 (preferably 11 or higher, as Java 8 is starting to become obsolete).
+Of course, keep the Language as Java.
+The Group should match your organisation, e.g. com.qa.
+The Artifact should match the Name.
+Keep the Version as-is for now.
+The Package should be your Group field plus your project Name (all in lowercase), e.g. com.qa.starterproject.
 
-3. From this screen you can edit both the "User" and the "System" variables, you should change the "System" variables (bottom half of the window) as we want our changes to affect ALL users. Click "New..." to add a new system variable.
+Ignore everything else, then click Next.
 
-![image](https://user-images.githubusercontent.com/104441372/173260554-b6c3bfa2-cd1b-4542-b728-1e315a46481b.png)
+![image](https://user-images.githubusercontent.com/104441372/181388592-b86ddc1f-3f48-4da6-9f05-efea6bbe06e4.png)
 
-4. In the new popup window, we will create our new JAVA_HOME variable and give it a value corresponding to our JDK folder.
+The following screen allows you to select any Spring framework projects you wish to use.
 
-![image](https://user-images.githubusercontent.com/104441372/173260593-1b993bbb-142e-466b-9d00-30899d5934c5.png)
+From the list, select Spring Data JPA, Spring Web, and H2 Database, then click Finish.
 
-5. Click "OK" and we should now see our new JAVA_HOME system variable in the "System variables" box like so.
+![image](https://user-images.githubusercontent.com/104441372/181388619-7c27e5d2-827f-41d6-a0e5-6f8b56b76cf3.png)
 
-![image](https://user-images.githubusercontent.com/104441372/173260613-2b67a347-68ec-4436-a328-8bfbac457435.png)
+Spring will take time to set the project up - you can see its progress in the bottom-right of your screen.
 
-6. Now we need to edit the "Path" variable to include a reference to the /bin (binary files) folder in our JAVA_HOME.
-To do this select the "Path" variable under "System variables" and then click "Edit...".
+Once done, you should be able to expand out your project in the Project Explorer:
 
-![image](https://user-images.githubusercontent.com/104441372/173260632-834c0df4-dc19-4db2-894e-723e924e403a.png)
-
-7. You need to append the path of the Java /bin folder to this "Path" variable, so to do this, we will reference the JAVA_HOME variable we created like so: %JAVA_HOME%\bin
-
-8.When you have done this your "Path" variable should look like the image below (make sure that there is a semi-colon before and after %JAVA_HOME%\bin).
-
-![image](https://user-images.githubusercontent.com/104441372/173260661-22eb65a6-f4e3-4acd-bc4b-6c8424ae7dcf.png)
-
-9. To test that this has saved, open “command prompt”, type "java" and hit enter. If the "Path" variable has been configured correctly then the OS will run the file called "Java" in your JAVA_HOME /bin folder (Java.exe) and you should see this output:
-
-![image](https://user-images.githubusercontent.com/104441372/173260680-3b8e1ebb-5e43-4497-b8da-246a01a9bb7d.png)
-
-10. You can also check which Java version you're using if you open “command prompt” and run "java -version".
-
-![image](https://user-images.githubusercontent.com/104441372/173260694-3a3ace3a-4c55-4cf7-a904-62c037240f73.png)
+![image](https://user-images.githubusercontent.com/104441372/181388654-528fda1d-5c2e-41fd-8e65-81763d9889a9.png)
 
 ## Running the tests
 
