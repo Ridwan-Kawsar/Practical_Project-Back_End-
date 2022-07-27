@@ -19,6 +19,7 @@ Required softwares:
 -Maven (Build Tool / Manages dependencies) - https://maven.apache.org/download.cgi
 -SpringBoot (Backend Application) - https://spring.io/tools
 -Postman (Testing HTTP Requests) - https://www.postman.com/downloads/
+-H2 Console  (Remote Database) - http://localhost:8080/h2-console/
 -HTML/Live Server (Webpage Development) - Live Server is found in the extensions section of Visual Studio Code.
 -CSS/Bootstrap (Front-end Styling) - https://getbootstrap.com/
 -JavaScript (Coding Functionality for Front-End)
@@ -96,7 +97,7 @@ To do this select the "Path" variable under "System variables" and then click "E
 2. Scroll down to 'Coverage As'
 3. Select '2 JUnit Test'
 
-JUnit Tests - 
+JUnit Tests - focuses on Unit tests, but can also be used for a variety of other use cases.
 Mockito Tests - Mockito is an open source testing framework. It allows the creation of test objects (mock objects) in automated unit tests. Mockito allows us to verify the behaviour of the system under test without establishing connections first. Therefore we can test our code that, for example, connects to a database and runs queries without actually having to connect to the database. Mocked objects return dummy data to avoid external dependencies and allow us to make sure the flow of our code is correct and the logic is doing what we expect as opposed to working, but working incorrectly.
 
 ### Unit Tests 
@@ -149,7 +150,6 @@ Big bang integration doesn't follow many guidelines. In essence, you combine eve
 We use [Github](https://github.com/) for versioning.
 
 ## Authors
-
 
 * **Ridwan Kawsar** - *Final work - Completion of MVP* - [ridwankawsar](https://github.com/Ridwan-Kawsar)
 
