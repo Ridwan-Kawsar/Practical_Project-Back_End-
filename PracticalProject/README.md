@@ -97,6 +97,12 @@ Once done, you should be able to expand out your project in the Project Explorer
 ![image](https://user-images.githubusercontent.com/104441372/181388654-528fda1d-5c2e-41fd-8e65-81763d9889a9.png)
 
 ## Running the tests
+JUNIT tests were taken with a coverage of 81.5% to ensure that the CRUD methods were working correctly. 
+Mockito was used on the service classes so that they could be tested in isolation, ensuring all of the functions work.
+MockMvc Was used to test the controller classes to ensure that the correct HTTP responses were being recieved, as well as the correct response content.
+
+Postman - used to manually test HTTP requests, connection to SQL Database and CRUD functionality.
+Selenium - used to run automated tests on the front-end of the application, making sure all of the inputs and buttons work and output what is expected.
 
 *How to run automated tests in Java*
 1. Right click over the desired project/folder/package
