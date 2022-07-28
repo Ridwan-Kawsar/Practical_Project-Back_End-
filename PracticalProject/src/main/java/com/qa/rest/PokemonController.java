@@ -64,10 +64,10 @@ public class PokemonController {
 				name = existing.getName();
 			}
 			if ("".equals(type)) {
-				type = existing.getName();
+				type = existing.getType();
 			}
 			if ("".equals(species)) {
-				species = existing.getName();
+				species = existing.getSpecies();
 			}
 		}
 		return this.service.update(id, name, type, species, health, attack, defence);
