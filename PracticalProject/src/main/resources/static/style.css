@@ -1,13 +1,21 @@
 .header {
     min-height: 100vh;
     width: 100%;
-    background-image: url('PokemonWallpaper.png');
+    background-image: url('996657.jpg');
     background-position: center;
-    background-size: 90%;
+    background-size: cover;
     background-attachment: fixed;
  
 }
 
-.body{
-
+h1{
+    font-size: 70px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: rgb(120, 13, 120);
+    text-shadow:4px 4px 4px white;
 }
+
+/* .iframe{
+position: relative; 
+left: 1000px;
+} */
