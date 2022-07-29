@@ -143,7 +143,7 @@ Big bang integration doesn't follow many guidelines. In essence, you combine eve
 *Executing the Practical Project via LiveServer on Visual Studio Code*
 1. Clone the project via the following link in a terminal/bash terminal; git@github.com:Ridwan-Kawsar/QAPracticalProject.git
 2. Open a terminal and change directory till you're aligned with the QAPracticalProject folder.
-3. Then type 'java -jar ims-0.0.1-jar-with-dependencies.jar' in the terminal to execute the Practical Project
+3. Then type 'PracticalProject-0.0.1-SNAPSHOT.jar' in the terminal to execute the Practical Project
 4. Open Static Workspace on Visual Studio Code
 5. Open the index.html file inside the static folder, select the "Go live" button on the bottom right corner of visual studio code.
 6. The webpage will load automatically.
