@@ -126,7 +126,7 @@ function updatePokemon(id) {
         }
 renderPokedex();
 
-//Read Functionality
+// Read Functionality
 // document.getElementById('PokemonSearch').addEventListener("submit", function (event) {
 //     event.preventDefault();
     

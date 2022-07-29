@@ -27,50 +27,54 @@
         </li>
         </ul>
     </div>
-      
-    <main class="container">
-        <div class="row">
-            <section class="col-12"> <!-- col-4 -->
-
-              <h2>Pokemon Form</h2>
+    <section class="header">
+      <div align="center"> <br><h2>Pokemon Form</h2></div>
+      <main class="container">
+          <div class="row p-3">
+              <section class="col-4">
                 <form id="pokedexForm">
-                    <label class="form-label" for="name">Name:</label>
-                    <input class="form-control" type="text" Name="name" id="name">
-                    <label class="form-label" for="type">Type:</label>
-                    <input class="form-control" type="text" Type="type" id="type">
-                    <label class="form-label" for="species">Species:</label>
-                    <input class="form-control" type="text" Species="species" id="species">
-                    <label class="form-label" for="health">Health:</label>
-                    <input class="form-control" type="text" Health="health" id="health">
-                    <label class="form-label" for="attack">Attack:</label>
-                    <input class="form-control" type="text" Attack="attack" id="attack">
-                    <label class="form-label" for="defence">Defence:</label>
-                    <input class="form-control" type="text" Defence="defence" id="defence">
-                    <div class="mt-3">
-                    </div>
-                    
-                    <button class="btn btn-danger" type="reset">Reset</button>
-                    <button class="btn btn-primary">Submit</button>
-                </form>
-            </section>
+                  <label class="form-label" for="name">Name:</label>
+                  <input class="form-control" type="text" Name="name" id="name">
+                  <label class="form-label" for="type">Type:</label>
+                  <input class="form-control" type="text" Type="type" id="type">
+                  <label class="form-label" for="species">Species:</label>
+                  <input class="form-control" type="text" Species="species" id="species">
+                  <label class="form-label" for="health">Health:</label>
+                  <input class="form-control" type="text" Health="health" id="health">
+                  <label class="form-label" for="attack">Attack:</label>
+                  <input class="form-control" type="text" Attack="attack" id="attack">                    <label class="form-label" for="defence">Defence:</label>
+                  <input class="form-control" type="text" Defence="defence" id="defence">                    <div class="mt-3">
+            <div class="mt-3"></div>
 
-            <nav class="navbar navbar-light bg-light">
-              <div class="container-fluid">
-                <a class="navbar-brand">Navbar</a>
-                <form class="d-flex">
-                  <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                  <button class="btn btn-outline-success" type="submit">Search</button>
+                  <button class="btn btn-primary">Submit</button>
+                  <button class="btn btn-danger" type="reset">Reset</button>
                 </form>
-              </div>
-              <script src="search.js"></script>
-            </nav>
+                <br><br>
 
-            <section class="col">
-                <div id="output" class="row row-cols-1 g-2"></div>
-            </section>
-        </div>
-    </main>
-    <script src="./index.js"></script>
+                
+                <form id="searchPokemonName">
+                  <label class="form-label" for="searchPokemonName">Pokemon Name:</label>
+                  <input class="form-control" type="text" name="searchName" id="searchName">   
+                  <div class="mt-4">
+  
+                      </div>            
+                      <button class="btn btn-primary">Search</button>
+                      <button class="btn btn-danger", onclick="refreshBtn()">Clear</button>
+                      <script>
+                          function refreshBtn() {
+                              location.reload();
+                          }
+                      </script>
+                  </form>
+              </section>
+              <section class="col">
+                  <div id="output" class="row row-cols-1 g-2"></div>
+              </section>
+          </div>
+      </main>
+      <script src="./index.js"></script>
+  </section>
+  <script src="./index.js"></script>
 </body>
 
 </html>
